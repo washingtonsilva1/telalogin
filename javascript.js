@@ -19,3 +19,14 @@ document.getElementById("form-login").addEventListener("submit", (event) => {
         alert(mensagem);
     }
 });
+
+document.getElementById("sp_").addEventListener("click", () => {
+    let pass = document.getElementById("pass_");
+    let status = (pass.getAttribute("type") == "password") ? true : false;
+    if(status) {
+        pass.setAttribute("type", "text");
+    }
+    else {
+        pass.setAttribute("type", "password");
+    }
+});

@@ -68,3 +68,7 @@ body {
     transition: all 0.2s;
     background-color: rgb(64, 64, 179);
 }
+
+.seek {
+    margin: 10px 0px;
+}
