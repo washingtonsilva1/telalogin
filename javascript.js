@@ -1,23 +1,33 @@
 document.getElementById("form-login").addEventListener("submit", (event) => {
+    let form = document.getElementById("form-login");
+    let notification = document.getElementById(form.getAttribute("notify"));
     let login = document.getElementById("userid_");
     let pass = document.getElementById("pass_");
     let mensagem="";
     if(login.value == "") {
-        mensagem += "O campo Id de usuário não pode estar vazio!\n";
+        mensagem += "<p>O campo <b>Id de usuário</b> não pode estar vazio!</p>";
     }
     else if(login.value.length < 5) {
-        mensagem += "O Id de usuário precisa ter 5 caracteres ou mais!\n";
+        mensagem += "<p>O <b>Id de usuário</b> precisa ter 5 caracteres ou mais!</p>";
     }
     if(pass.value == "") {
-        mensagem += "O campo Senha não pode estar vazio!\n";
+        mensagem += "<p>O campo <b>Senha</b> não pode estar vazio!</p>";
     }
     else if(pass.value.length < 8) {
-        mensagem += "A Senha precisa ter 8 caracteres ou mais!\n";
+        mensagem += "<p>A <b>Senha</b> precisa ter 8 caracteres ou mais!</p>";
     }
     if(mensagem) {
-        event.preventDefault();
-        alert(mensagem);
+        (notification.classList.contains("not-success")) ? notification.classList.toggle("not-success") : null;
+        (notification.classList.contains("not-error")) ? null : notification.classList.add("not-error");
+        notification.innerHTML = mensagem;
+        notification.style.opacity = "1";
     }
+    else {
+        (notification.classList.contains("not-error")) ? notification.classList.toggle("not-error") : null;
+        (notification.classList.contains("not-success")) ? null : notification.classList.add("not-success");
+        notification.innerHTML = "<p>Ocorreu tudo bem!</p>";
+    }
+    event.preventDefault();
 });
 
 document.getElementById("sp_").addEventListener("click", () => {
