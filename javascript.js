@@ -1,6 +1,6 @@
 document.getElementById("form-login").addEventListener("submit", (event) => {
     let form = document.getElementById("form-login");
-    let notification = document.getElementById(form.getAttribute("notify"));
+    let notification = document.getElementById("form-not")
     let login = document.getElementById("userid_");
     let pass = document.getElementById("pass_");
     let mensagem="";
